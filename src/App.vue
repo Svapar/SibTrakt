@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <header class="header">
+    <header v-if="!$route.meta.hideHeader" class="header">
       <nav class="nav">
         <router-link to="/">Главная</router-link>
         <router-link to="/tours">Маршруты</router-link>
@@ -15,6 +15,14 @@
           class="login-icon"
           @click="showLoginModal = true"
         />
+      <router-link to="/profile">
+        <img
+        src="@/assets/user.png"
+        alt="Профиль"
+        class="profile-icon"
+        @click="showProfileModal = true"
+      />
+      </router-link>
     </header>
     <main>
       <router-view />
@@ -26,7 +34,9 @@
       <LoginForm @login-success="handleLoginSuccess" />
       <button class="close-btn" @click="showLoginModal = false">×</button>
     </div>
+  
   </div>
+  
 </template>
 
 <script>
@@ -37,7 +47,8 @@ export default {
   data() {
     return {
       showLoginModal: false,
-      isAuthenticated: false
+      isAuthenticated: false,
+      showProfileModal: false
     };
   },
   mounted() {
@@ -56,6 +67,11 @@ export default {
 </script>
 
 <style scoped>
+.profile-icon{
+  height: 35px;
+  width: 35px;
+  margin-left: 60%;
+}
 .header-container {
   display: flex;
   flex-direction: column;
