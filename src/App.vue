@@ -17,6 +17,7 @@
         />
       <router-link to="/profile">
         <img
+        v-if="isAuthenticated"
         src="@/assets/user.png"
         alt="Профиль"
         class="profile-icon"
