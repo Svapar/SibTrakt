@@ -1,12 +1,25 @@
 import axios from 'axios';
+const token = localStorage.getItem('token');
 
-const api = axios.create({
-  baseURL: 'https://api.sibtract.ru/v1', // Уточню точный путь по YAML
+const apiClient = axios.create({
+  baseURL: 'http://93.81.235.62:7575/api/v1/', 
   headers: {
     'Content-Type': 'application/json',
-  },
+    'Authorization': `Token ${token}` 
+  }
 });
 
-export const fetchTours = (params) => api.get('/tours', { params });
-export const fetchTourById = (id) => api.get(`/tours/${id}`);
-// Добавим позже методы для карты, отзывов и контактов
+export default {
+  
+  getDestinations() {
+    return apiClient.get('/destinations/');
+  },
+
+  getDestinationContacts() {
+    return apiClient.get('/pairsnodes/');
+  },
+
+  getRoutes() {
+    return apiClient.get('/routers/');
+  }
+};

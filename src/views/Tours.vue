@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1>Список маршрутов</h1>
-    <TourList />
+    <DescriptionMap />
   </div>
 </template>
 
 <script>
-import TourList from '../components/TourList.vue';
+import DescriptionMap from '@/components/Descriptionmap.vue';
+
 export default {
-  components: { TourList }
+  components: {
+    DescriptionMap // Регистрация компонента
+  }
 };
 </script>

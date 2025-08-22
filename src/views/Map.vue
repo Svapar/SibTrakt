@@ -1,13 +1,20 @@
 <template>
   <div>
-    <h1>Карта маршрутов</h1>
-    <MapView />
+    <h1>Карта мест</h1>
+    <ClusterMap />
   </div>
 </template>
 
 <script>
-import MapView from '../components/MapView.vue';
+import ClusterMap from '../components/MapView.vue';
 export default {
-  components: { MapView }
+  components: { ClusterMap }
 };
 </script>
+<style scoped>
+  div{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+</style>
